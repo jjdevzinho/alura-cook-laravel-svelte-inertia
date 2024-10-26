@@ -1,10 +1,10 @@
 <script lang="ts">
-    import Receita from "~/components/paginas/receitas/Receita.svelte";
-    import Titulo from "~/components/compartilhados/Titulo.svelte";
-    import receitas from "~/json/receitas.json";
-    import { minhaLista } from "~/stores/minhaLista";
-    import TagLink from "~/components/compartilhados/TagLink.svelte";
-    import DefaultLayout from "~/Layouts/DefaultLayout.svelte";
+    import Receita from "@/components/paginas/receitas/Receita.svelte";
+    import Titulo from "@/components/compartilhados/Titulo.svelte";
+    import receitas from "@/json/receitas.json";
+    import { minhaLista } from "@/stores/minhaLista";
+    import TagLink from "@/components/compartilhados/TagLink.svelte";
+    import DefaultLayout from "@/Layouts/DefaultLayout.svelte";
 
     //   $: receitasFiltradas = receitas.filter((receita) => (
     //     receita.ingredientes.every((ingrediente) => (
@@ -12,12 +12,14 @@
     //     ))
     //   ));
 
-    $: receitasFiltradas = receitas.filter((receita) => {
-        // Filtra receitas onde todos os ingredientes estão na minhaLista
-        return receita.ingredientes.every((ingrediente) => {
-            return $minhaLista.includes(ingrediente);
-        });
-    });
+    let receitasFiltradas = $derived(
+        receitas.filter((receita) => {
+            // Filtra receitas onde todos os ingredientes estão na minhaLista
+            return receita.ingredientes.every((ingrediente) => {
+                return $minhaLista.includes(ingrediente);
+            });
+        }),
+    );
 </script>
 
 <svelte:head>

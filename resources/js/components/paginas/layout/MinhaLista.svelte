@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { minhaLista } from "~/stores/minhaLista";
-    import MeuIngrediente from "~/components/paginas/layout/MeuIngrediente.svelte";
+    import { minhaLista } from "@/stores/minhaLista";
+    import MeuIngrediente from "./MeuIngrediente.svelte";
 
     //   export let ingredientes: string[];
 </script>

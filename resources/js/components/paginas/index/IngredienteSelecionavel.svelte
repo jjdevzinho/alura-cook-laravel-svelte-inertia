@@ -1,23 +1,22 @@
 <script lang="ts">
-    import { minhaLista } from "~/stores/minhaLista";
-    import Tag from "~/components/compartilhados/Tag.svelte";
-    export let ingrediente: string;
-    //   let selecionado = false;
-    // deve ser usar o $ para que o svelte reaja a mudanças na variável
-    $: selecionado = $minhaLista.includes(ingrediente);
+    import { minhaLista } from "@/stores/minhaLista";
+    import Tag from "@/components/compartilhados/Tag.svelte";
+    interface Props {
+        ingrediente: string;
+    }
+
+    let { ingrediente }: Props = $props();
+    let selecionado = $derived($minhaLista.includes(ingrediente));
 
     function aoClicar() {
         if (!selecionado) {
-            //   $minhaLista = [...$minhaLista, ingrediente];
-            minhaLista.adicionarIngrediente(ingrediente);
-        } else {
-            //   $minhaLista = $minhaLista.filter((item) => item !== ingrediente);
-            minhaLista.removerIngrediente(ingrediente);
+            return minhaLista.adicionarIngrediente(ingrediente);
         }
+        return minhaLista.removerIngrediente(ingrediente);
     }
 </script>
 
-<button type="button" on:click={aoClicar}>
+<button type="button" onclick={aoClicar}>
     <Tag ativa={selecionado}>{ingrediente}</Tag>
 </button>
 

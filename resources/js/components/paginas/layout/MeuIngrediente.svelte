@@ -1,9 +1,13 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
     ("svelte/transition");
-    import Tag from "~/components/compartilhados/Tag.svelte";
-    import { minhaLista } from "~/stores/minhaLista";
-    export let ingrediente: string;
+    import Tag from "@/components/compartilhados/Tag.svelte";
+    import { minhaLista } from "@/stores/minhaLista";
+    interface Props {
+        ingrediente: string;
+    }
+
+    let { ingrediente }: Props = $props();
 
     function removerIngrediente() {
         minhaLista.removerIngrediente(ingrediente);
@@ -12,11 +16,15 @@
 
 <div class="meu-ingrediente-container" transition:fade={{ duration: 200 }}>
     <Tag ativa={true}>
-        <button class="close" on:click={removerIngrediente} aria-label="remover"
+        <button
+            class="close"
+            onclick={removerIngrediente}
+            title="remover"
+            aria-label="Remover ingrediente"
         ></button>
         {ingrediente}
     </Tag>
-    <button class="remover" on:click={removerIngrediente}>Remover</button>
+    <button class="remover" onclick={removerIngrediente}>Remover</button>
 </div>
 
 <style>
@@ -25,7 +33,7 @@
     }
 
     .close {
-        background-image: url("/assets/icones/close.svg");
+        background-image: url("/public/assets/icones/close.svg");
         height: 10px;
         width: 10px;
         cursor: pointer;

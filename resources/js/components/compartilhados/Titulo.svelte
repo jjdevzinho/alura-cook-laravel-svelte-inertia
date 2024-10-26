@@ -1,9 +1,14 @@
 <script lang="ts">
-  export let tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" = "h1";
+  interface Props {
+    tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    children?: import('svelte').Snippet;
+  }
+
+  let { tag = "h1", children }: Props = $props();
 </script>
 
 <svelte:element this={tag} class="titulo tag-{tag}">
-  <slot></slot>
+  {@render children?.()}
 </svelte:element>
 
 <style>

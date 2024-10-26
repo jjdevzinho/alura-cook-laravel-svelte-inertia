@@ -1,9 +1,9 @@
 <script lang="ts">
     import "/public/assets/app.css";
-    import Cabecalho from "~/components/paginas/layout/Cabecalho.svelte";
-    import MinhaLista from "~/components/paginas/layout/MinhaLista.svelte";
-    import Rodape from "~/components/paginas/layout/Rodape.svelte";
-    import { minhaLista } from "~/stores/minhaLista";
+    import Cabecalho from "@/components/paginas/layout/Cabecalho.svelte";
+    import MinhaLista from "@/components/paginas/layout/MinhaLista.svelte";
+    import Rodape from "@/components/paginas/layout/Rodape.svelte";
+    import { minhaLista } from "@/stores/minhaLista";
 </script>
 
 <div class="container-principal">

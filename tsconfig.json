@@ -13,11 +13,11 @@
             "@/*": [
                 "./resources/js/*"
             ],
+            "@public/*": [
+                "./public/*"
+            ],
             "@assets/*": [
                 "./resources/assets/*"
-            ],
-            "~/*": [
-                "./resources/js/*"
             ],
             "ziggy-js": [
                 "./vendor/tightenco/ziggy"

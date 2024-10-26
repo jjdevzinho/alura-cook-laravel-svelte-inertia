@@ -1,13 +1,13 @@
 <script lang="ts">
-    import Layout from "~/Layouts/DefaultLayout.svelte";
+    import Layout from "@/Layouts/DefaultLayout.svelte";
 
-    import Titulo from "~/components/compartilhados/Titulo.svelte";
-    import Categoria from "~/components/paginas/index/Categoria.svelte";
-    import categorias from "~/json/categorias.json";
+    import Titulo from "@/components/compartilhados/Titulo.svelte";
+    import Categoria from "@/components/paginas/index/Categoria.svelte";
+    import categorias from "@/json/categorias.json";
 
-    //   import { minhaLista } from "~/stores/minhaLista.ts";
+    //   import { minhaLista } from "@/stores/minhaLista.ts";
     //   import { beforeNavigate } from "$app/navigation";
-    import TagLink from "~/components/compartilhados/TagLink.svelte";
+    import TagLink from "@/components/compartilhados/TagLink.svelte";
 
     //   $: listaVazia = $minhaLista.length === 0;
 

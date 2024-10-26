@@ -1,7 +1,11 @@
 <script lang="ts">
-    import Card from "~/components/compartilhados/Card.svelte";
-    import type IReceita from "~/interfaces/IReceita.ts";
-    export let receita: IReceita;
+    import Card from "@/components/compartilhados/Card.svelte";
+    import type IReceita from "@/interfaces/IReceita.ts";
+    interface Props {
+        receita: IReceita;
+    }
+
+    let { receita }: Props = $props();
 </script>
 
 <Card --largura="280px">

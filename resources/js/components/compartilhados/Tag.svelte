@@ -1,11 +1,21 @@
 <script lang="ts">
-  export let ativa: boolean = false;
-  export let tamanho: "md" | "lg" = "md";
-  export let desabilitada: boolean = false;
+  interface Props {
+    ativa?: boolean;
+    tamanho?: "md" | "lg";
+    desabilitada?: boolean;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    ativa = false,
+    tamanho = "md",
+    desabilitada = false,
+    children
+  }: Props = $props();
 </script>
 
 <div class="tag {tamanho}" class:ativa class:desabilitada>
-  <slot></slot>
+  {@render children?.()}
 </div>
 
 <style>

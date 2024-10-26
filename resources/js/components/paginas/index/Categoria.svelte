@@ -1,9 +1,13 @@
 <script lang="ts">
-    import type ICategorias from "~/interfaces/ICategorias";
-    import Card from "~/components/compartilhados/Card.svelte";
-    import IngredienteSelecionavel from "~/components/paginas/index/IngredienteSelecionavel.svelte";
+    import type ICategorias from "@/interfaces/ICategorias";
+    import Card from "@/components/compartilhados/Card.svelte";
+    import IngredienteSelecionavel from "@/components/paginas/index/IngredienteSelecionavel.svelte";
 
-    export let categoria: ICategorias;
+    interface Props {
+        categoria: ICategorias;
+    }
+
+    let { categoria }: Props = $props();
 </script>
 
 <Card>
