@@ -10,7 +10,7 @@
     }
 </script>
 
-<div class="meu-ingrediente-container" transition:fade={{ duration: 2000 }}>
+<div class="meu-ingrediente-container" transition:fade={{ duration: 200 }}>
     <Tag ativa={true}>
         <button class="close" on:click={removerIngrediente} aria-label="remover"
         ></button>
